@@ -22,7 +22,7 @@ def golden_ratio_xyz(n):
     points[:,2] = z
     return points
 
-def plot(points):
+def plot(points,save_png = True):
     #2Dfig to 3Dfig
     fig=pylab.figure()
     ax = Axes3D(fig)
@@ -33,7 +33,8 @@ def plot(points):
     ax.set_zlabel("Z")
 
     ax.scatter3D(points[:,0], points[:,1],points[:,2] ,color =(0.0,0.0,1.0),marker="o",s=5,label=u"Setosa")
-    pylab.savefig("sumpling_point.png", format = 'png' ,dpi=200)
+    if save_png == True:
+        pylab.savefig("sumpling_point.png", format = 'png' ,dpi=200)
     pylab.show()
     
 
@@ -42,7 +43,7 @@ if __name__ == '__main__':
     #Input Sampling Points
     n = int(raw_input('sampling_point='))
     n_points = golden_ratio_xyz(n)
-    plot(n_points)
+    plot(n_points, False)
     
     
 
